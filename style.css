@@ -1,0 +1,158 @@
+/* Element selector */
+body {
+font-family: Arial, sans-serif;
+background-color: #f4f4f4;
+margin: 0;
+padding: 20px;
+}
+
+/* ID selector */
+#page-header {
+background-color: #2c3e50;
+color: white;
+text-align: center;
+padding: 30px;
+margin-bottom: 20px;
+}
+
+/* Element selector */
+h1 {
+margin: 0;
+}
+
+/* Class selector */
+.expense-section {
+background-color: white;
+padding: 25px;
+margin-bottom: 20px;
+border-radius: 8px;
+}
+
+/* Class selector */
+.expenses-list {
+background-color: white;
+padding: 25px;
+border-radius: 8px;
+}
+
+/* Element selector */
+input {
+display: block;
+width: 100%;
+max-width: 400px;
+padding: 10px;
+margin-top: 5px;
+margin-bottom: 15px;
+box-sizing: border-box;
+}
+
+/* Element selector */
+select {
+display: block;
+width: 100%;
+max-width: 400px;
+padding: 10px;
+margin-top: 5px;
+margin-bottom: 15px;
+box-sizing: border-box;
+}
+
+/* Element selector */
+button {
+padding: 10px 20px;
+cursor: pointer;
+}
+
+/* ID selector */
+#no-expenses {
+color: #777;
+font-style: italic;
+}
+
+/* Expense Table */
+
+.expenses-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.expenses-list th,
+.expenses-list td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.expenses-list th {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.expenses-list tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Advanced CSS Selectors */
+
+/* Descendant selector */
+.expenses-list td {
+    padding: 12px;
+}
+
+/* Direct child selector */
+.expense-section > form {
+    padding: 5px;
+}
+
+/* Position pseudo-class */
+.expenses-list tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Negation pseudo-class */
+input:not([type="submit"]) {
+    border: 1px solid #ccc;
+}
+
+/* Focus state */
+input:focus,
+select:focus {
+    outline: 2px solid #3498db;
+    border-color: #3498db;
+}
+
+/* Hover effect on table rows */
+.expenses-list tbody tr:hover {
+    background-color: #e6e6e6;
+}
+
+/* Button hand cursor */
+button {
+    cursor: pointer;
+}
+
+/* How to use section */
+.instructions-section {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.instructions-section summary {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Video section */
+.video-section {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.video-section iframe {
+    max-width: 100%;
+}
+
