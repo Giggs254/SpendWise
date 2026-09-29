@@ -1,14 +1,18 @@
+Below is the complete `README.md`, ready to replace your current README. It preserves your existing project documentation while adding the JavaScript requirements for this week's assignment.
+
 # SpendWise - Budget Tracker
 
 ## Project Description
 
-SpendWise is a personal budget tracking webpage designed to help users record, view, and organize their daily expenses.
+SpendWise is a personal budget tracking webpage designed to help users record, view, organize, and process their daily expenses.
 
-The project has been developed as a responsive dashboard interface using **HTML5 and CSS3**, with a JavaScript file connected for future functionality.
+The project has been developed as a responsive dashboard interface using **HTML5, CSS3, and JavaScript**.
 
-The current stage focuses on building the **SpendWise Dashboard Shell** as the foundation of the capstone project. The dashboard uses modern CSS techniques including **CSS Grid, Flexbox, CSS Custom Properties, responsive media queries, and card micro-interactions**.
+The current stage builds on the **SpendWise Dashboard Shell** by adding the JavaScript foundation required to process basic budgeting information. The dashboard uses modern CSS techniques including **CSS Grid, Flexbox, CSS Custom Properties, responsive media queries, and card micro-interactions**.
 
-The financial information currently displayed on the dashboard is realistic static content. Functionality will be added in later stages.
+JavaScript is used to store application data, collect the user's monthly budget, perform budget calculations, organize logic using reusable functions, and display calculated results in the browser console.
+
+The financial information displayed on the dashboard includes realistic static content, while JavaScript is used to process budgeting and expense data.
 
 ## Features
 
@@ -25,7 +29,7 @@ The SpendWise dashboard uses a modern dashboard structure consisting of:
 * Instructions section
 * Budgeting tips section
 
-The dashboard provides the visual foundation for future SpendWise functionality.
+The dashboard provides the visual foundation for SpendWise functionality.
 
 ### 2. Sidebar Navigation
 
@@ -57,7 +61,7 @@ Flexbox is used to arrange the header content.
 
 ### 4. Financial Category Cards
 
-The dashboard contains six financial category cards displaying realistic static financial information.
+The dashboard contains six financial category cards displaying realistic financial information.
 
 The categories are:
 
@@ -114,7 +118,7 @@ The category dropdown contains:
 * Utilities
 * Other
 
-The **Add Expense** button is currently present as a visual element. JavaScript functionality will be developed in a later stage.
+The form provides the input structure for collecting expense information.
 
 ### 7. Expense Table
 
@@ -127,7 +131,7 @@ The table contains:
 * Category
 * Date
 
-Sample expenses have been included to demonstrate how the tracker will display financial activity.
+Sample expenses have been included to demonstrate how the tracker displays financial activity.
 
 ### 8. Logo and Multimedia
 
@@ -215,6 +219,162 @@ A dark theme is implemented using:
 
 The dark theme overrides the CSS Custom Properties defined in `:root`, allowing the dashboard to display a darker color scheme while maintaining the same layout.
 
+### 14. JavaScript Foundation
+
+JavaScript has been added to transform SpendWise from a purely visual application into an application capable of processing budgeting data.
+
+The JavaScript file is linked to the HTML page using:
+
+```html
+<script src="script.js"></script>
+```
+
+The JavaScript foundation implements the following concepts:
+
+* Variables
+* Data types
+* Arrays
+* Objects
+* User input
+* Number conversion
+* Calculations
+* Functions
+* Loops
+* Console output
+
+These concepts allow SpendWise to store and process basic financial information.
+
+### 15. Application Data and Variables
+
+Variables are used to store important budgeting and expense information.
+
+The monthly budget is stored using a variable:
+
+```javascript
+let monthlyBudget = 50000;
+```
+
+The `monthlyBudget` variable stores the amount available for the monthly budget.
+
+Expense information is stored in an array containing objects:
+
+```javascript
+let expenses = [
+    {
+        name: "Lunch",
+        amount: 350,
+        category: "Food"
+    },
+    {
+        name: "Bus Fare",
+        amount: 100,
+        category: "Transport"
+    }
+];
+```
+
+Each expense object contains:
+
+* Expense name
+* Amount
+* Category
+
+Variables are also used to store calculated results such as the total amount spent and the remaining balance.
+
+### 16. User Input
+
+SpendWise collects the user's monthly budget using the JavaScript `prompt()` function.
+
+```javascript
+let userBudget = prompt(
+    "Enter your monthly budget in KSh:"
+);
+```
+
+The value entered by the user is converted into a number using `Number()`:
+
+```javascript
+monthlyBudget = Number(userBudget);
+```
+
+This allows the entered budget to be used in mathematical calculations.
+
+### 17. Budget Calculations
+
+SpendWise performs calculations to determine the total amount spent and the remaining budget.
+
+The total expenses are calculated by adding the amount of each expense:
+
+```javascript
+function calculateTotalExpenses(expenses) {
+    let total = 0;
+
+    for (let expense of expenses) {
+        total += expense.amount;
+    }
+
+    return total;
+}
+```
+
+The remaining balance is calculated by subtracting the total expenses from the monthly budget:
+
+```javascript
+function calculateRemainingBalance(budget, expenses) {
+    let totalExpenses = calculateTotalExpenses(expenses);
+
+    return budget - totalExpenses;
+}
+```
+
+For example:
+
+```text
+Monthly Budget: KSh 50,000
+Total Expenses: KSh 14,750
+Remaining Balance: KSh 35,250
+```
+
+The calculation follows:
+
+```text
+Remaining Balance = Monthly Budget - Total Expenses
+```
+
+### 18. Reusable Functions
+
+Functions are used to organize the budgeting logic into reusable sections.
+
+The `calculateTotalExpenses()` function calculates the total amount spent from the expense records.
+
+The `calculateRemainingBalance()` function calculates the amount remaining after total expenses have been deducted from the monthly budget.
+
+Using functions helps organize the code by separating different budgeting tasks into reusable blocks. This makes the code easier to understand, maintain, and reuse.
+
+### 19. Console Output
+
+The calculated budgeting results are displayed in the browser console using `console.log()`.
+
+The application displays:
+
+* Monthly Budget
+* Total Expenses
+* Remaining Balance
+* Number of Expenses
+
+Example console output:
+
+```text
+========== SpendWise Budget Report ==========
+Monthly Budget: KSh 50000
+Total Expenses: KSh 14750
+Remaining Balance: KSh 35250
+Number of Expenses: 5
+============================================
+```
+
+The browser console can be opened using the browser's Developer Tools.
+
 ## Technologies Used
 
 * HTML5
@@ -242,7 +402,7 @@ SpendWise/
 
 **`index.html`**
 
-Contains the structure of the SpendWise dashboard, including the sidebar, header, financial category cards, expense form, expense table, instructions, and budgeting video.
+Contains the structure of the SpendWise dashboard, including the sidebar, header, financial category cards, expense form, expense table, instructions, and budgeting video. It also links the JavaScript file to the webpage.
 
 **`style.css`**
 
@@ -250,7 +410,7 @@ Contains the visual design and layout of the SpendWise dashboard, including CSS 
 
 **`script.js`**
 
-Contains the JavaScript file connected to the project. Additional functionality will be implemented in future stages.
+Contains the JavaScript logic for storing budgeting data, collecting user input, performing calculations, using reusable functions, and displaying budgeting results in the browser console.
 
 **`Logo.png`**
 
@@ -258,15 +418,24 @@ Contains the SpendWise application logo used in the dashboard.
 
 **`README.md`**
 
-Contains documentation explaining the SpendWise project, its features, technologies, file structure, and future development.
+Contains documentation explaining the SpendWise project, its features, technologies, JavaScript concepts, file structure, and future development.
 
 ## Current Project Status
 
-The current version focuses on the **SpendWise Dashboard Shell** and its visual structure.
+The current version combines the **SpendWise Dashboard Shell** with the JavaScript foundation.
 
-The dashboard currently uses static financial information and does not yet provide dynamic expense management functionality.
+The dashboard provides the visual structure and responsive interface, while JavaScript now processes basic budgeting data.
 
-The project is ready to be extended with JavaScript functionality in future development stages.
+The current JavaScript functionality includes:
+
+* Storing monthly budget data
+* Storing expense data
+* Collecting the user's monthly budget
+* Calculating total expenses
+* Calculating the remaining balance
+* Displaying budgeting results in the browser console
+
+The project can be extended with more advanced dynamic expense management functionality in future stages.
 
 ## Future Improvements
 
@@ -274,6 +443,7 @@ Future versions of SpendWise can include:
 
 * Functional Add Expense button
 * Dynamic expense table updates
+* Dynamic category card updates
 * Expense calculations
 * Total spending calculations
 * Budget tracking
