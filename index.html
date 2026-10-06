@@ -83,10 +83,19 @@
             <div class="header-right">
                 <div class="balance-info">
                     <span>Available Balance</span>
-                    <strong>KSh 42,750</strong>
+
+                    <!-- Updated dynamically by JavaScript -->
+                    <strong id="available-balance">KSh 42,750</strong>
+
+                    <!-- Budget status updated dynamically -->
+                    <p id="budget-status"></p>
                 </div>
 
-                <img src="Logo.png" alt="SpendWise Logo" class="header-logo">
+                <img
+                    src="Logo.png"
+                    alt="SpendWise Logo"
+                    class="header-logo"
+                >
             </div>
 
         </header>
@@ -227,9 +236,11 @@
 
                 <h2>Add Expense</h2>
 
-                <form>
+                <form id="expense-form">
 
-                    <label for="expense-name">Expense Name</label>
+                    <label for="expense-name">
+                        Expense Name
+                    </label>
 
                     <input
                         type="text"
@@ -238,34 +249,66 @@
                     >
 
 
-                    <label for="expense-amount">Amount</label>
+                    <label for="expense-amount">
+                        Amount
+                    </label>
 
                     <input
                         type="number"
                         id="expense-amount"
                         placeholder="Enter amount"
+                        min="1"
                     >
 
 
-                    <label for="expense-category">Category</label>
+                    <label for="expense-category">
+                        Category
+                    </label>
 
                     <select id="expense-category">
 
-                        <option value="">Select a category</option>
-                        <option value="Food">Food</option>
-                        <option value="Transport">Transport</option>
-                        <option value="Rent">Rent</option>
-                        <option value="Entertainment">Entertainment</option>
-                        <option value="Savings">Savings</option>
-                        <option value="Utilities">Utilities</option>
-                        <option value="Other">Other</option>
+                        <option value="">
+                            Select a category
+                        </option>
+
+                        <option value="Food">
+                            Food
+                        </option>
+
+                        <option value="Transport">
+                            Transport
+                        </option>
+
+                        <option value="Rent">
+                            Rent
+                        </option>
+
+                        <option value="Entertainment">
+                            Entertainment
+                        </option>
+
+                        <option value="Savings">
+                            Savings
+                        </option>
+
+                        <option value="Utilities">
+                            Utilities
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
 
                     </select>
 
 
-                    <button type="button">
+                    <!-- JavaScript listens for the form submit event -->
+                    <button type="submit">
                         Add Expense
                     </button>
+
+                    <!-- Validation and success messages -->
+                    <p id="form-message" class="form-message"></p>
 
                 </form>
 
@@ -288,54 +331,20 @@
                 <table class="expense-table">
 
                     <thead>
-
                         <tr>
                             <th>Expense Name</th>
                             <th>Amount</th>
                             <th>Category</th>
                             <th>Date</th>
                         </tr>
-
                     </thead>
 
 
-                    <tbody>
-
-                        <tr>
-                            <td>Lunch</td>
-                            <td>KSh 350</td>
-                            <td>Food</td>
-                            <td>05 Sep 2026</td>
-                        </tr>
-
-                        <tr>
-                            <td>Bus Fare</td>
-                            <td>KSh 100</td>
-                            <td>Transport</td>
-                            <td>05 Sep 2026</td>
-                        </tr>
-
-                        <tr>
-                            <td>House Rent</td>
-                            <td>KSh 12,000</td>
-                            <td>Rent</td>
-                            <td>01 Sep 2026</td>
-                        </tr>
-
-                        <tr>
-                            <td>Movie</td>
-                            <td>KSh 800</td>
-                            <td>Entertainment</td>
-                            <td>03 Sep 2026</td>
-                        </tr>
-
-                        <tr>
-                            <td>Groceries</td>
-                            <td>KSh 1,500</td>
-                            <td>Food</td>
-                            <td>04 Sep 2026</td>
-                        </tr>
-
+                    <!--
+                        JavaScript generates the expense rows here.
+                        Do not add static expense rows.
+                    -->
+                    <tbody id="expense-table-body">
                     </tbody>
 
                 </table>
@@ -386,7 +395,9 @@
 </div>
 
 
-<!-- JavaScript -->
+<!-- =========================
+     JAVASCRIPT
+     ========================= -->
 <script src="script.js"></script>
 
 </body>
