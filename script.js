@@ -128,6 +128,7 @@ function checkBudgetStatus() {
 // 6. DISPLAY BUDGET STATUS
 // ==========================================
 
+
 function displayBudgetStatus() {
 
     const statusElement =
@@ -137,10 +138,25 @@ function displayBudgetStatus() {
         return;
     }
 
-    statusElement.textContent =
-        checkBudgetStatus();
-}
+    let totalSpent = calculateTotalExpenses(expenses);
+    let remainingBalance = monthlyBudget - totalSpent;
 
+    if (remainingBalance < 0) {
+
+        statusElement.className = "error";
+
+    } else if (remainingBalance <= monthlyBudget * 0.2) {
+
+        statusElement.className = "warning";
+
+    } else {
+
+        statusElement.className = "success";
+
+    }
+
+    statusElement.textContent = checkBudgetStatus();
+}
 
 // ==========================================
 // 7. UPDATE BUDGET SUMMARY

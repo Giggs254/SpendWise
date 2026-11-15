@@ -798,42 +798,69 @@ button:active {
    ========================= */
 
 .form-message {
+    min-height: 24px;
     margin-top: 12px;
     margin-bottom: 0;
-
     font-size: 0.9rem;
-
     font-weight: 600;
+    transition: color 0.2s ease;
 }
 
-
+/* Successful expense submission */
 .form-message.success {
     color: var(--accent-color);
 }
 
-
+/* Invalid user input */
 .form-message.error {
     color: #dc2626;
 }
 
-
+/* Budget warning */
 .form-message.warning {
     color: #d97706;
 }
 
 
 /* =========================
-   BUDGET STATUS MESSAGE
+   DYNAMIC BUDGET STATUS
    ========================= */
 
 #budget-status {
     margin: 4px 0 0;
-
     font-size: 0.75rem;
-
     font-weight: 600;
-
     text-align: right;
+    max-width: 300px;
+}
+
+/* Budget is within limits */
+#budget-status.success {
+    color: var(--accent-color);
+}
+
+/* Budget is nearly exhausted */
+#budget-status.warning {
+    color: #d97706;
+}
+
+/* Budget has been exceeded */
+#budget-status.error {
+    color: #dc2626;
+}
+
+
+/* =========================
+   TABLE EMPTY STATE
+   ========================= */
+
+.expense-table tbody:empty::after {
+    content: "No expenses recorded yet.";
+    display: table-cell;
+    padding: 20px;
+    text-align: center;
+    color: var(--secondary-text-color);
+    font-style: italic;
 }
 
 
@@ -845,11 +872,24 @@ button:active {
 
     #budget-status {
         text-align: left;
+        max-width: 100%;
     }
 
 }
 
 
+/* =========================
+   ACCESSIBILITY
+   ========================= */
 
+@media (prefers-reduced-motion: reduce) {
 
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
 
+}
